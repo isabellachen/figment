@@ -1,0 +1,28 @@
+/*
+Theme Name:     McLuhan Child
+Description:    Child theme for McLuhan Theme
+Author:         Isabella Chen
+Template:       mcluhan
+Version:        1.0.0
+*/
+
+@import url('../mcluhan/style.css');
+
+.meta__info {
+  margin: 0;
+}
+
+select {
+  background: transparent;
+  border-radius: 0;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: none !important;
+  color: #121212;
+  display: block;
+  font-size: 1em;
+  margin: 0 0 15px 0;
+  padding: 15px;
+  transition: border-color 0.15s linear;
+  -moz-appearance: none;
+  width: 100%;
+}
