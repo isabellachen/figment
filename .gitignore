@@ -1,0 +1,106 @@
+Skip to content
+ 
+Search…
+All gists
+Back to GitHub
+@isabellachen 
+@jasewarner jasewarner/gitignore-for-wordpress-theme
+Last active 9 days ago • Report abuse
+5
+3
+ Code Revisions 3 Stars 5 Forks 3
+<script src="https://gist.github.com/jasewarner/0b4baf4d0fc2388039e73722cc7fcee2.js"></script>
+  
+.gitignore for a WordPress theme
+ gitignore-for-wordpress-theme
+# ignore everything in the root except the "wp-content" directory.
+/*
+!wp-content/
+
+# ignore everything in the "wp-content" directory, except:
+# mu-plugins, plugins, and themes directories
+wp-content/*
+!wp-content/mu-plugins/
+!wp-content/plugins/
+!wp-content/themes/
+
+# ignore all mu-plugins, plugins, and themes
+# unless explicitly whitelisted at the end of this file
+wp-content/themes/*
+
+# ignore index.php in plugins folder
+wp-content/plugins/index.php
+
+# ignore all files starting with . or ~
+.*
+~*
+
+# ignore node dependency directories (used by grunt)
+node_modules/
+
+# ignore OS generated files
+ehthumbs.db
+Thumbs.db
+
+# ignore Editor files
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
+
+# ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# ignore packaged files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# -------------------------
+# BEGIN Whitelisted Files
+# -------------------------
+
+# track these files, if they exist
+!.gitignore
+!.editorconfig
+!README.md
+!CHANGELOG.md
+!composer.json
+
+# track these themes
+!wp-content/themes/theme_name/
+@josephbydeign
+josephbydeign commented on 10 May 2019
+I would suggest adding *.codekit3
+
+@isabellachen
+ 
+Leave a comment
+
+Attach files by dragging & dropping, selecting or pasting them.
+© 2020 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Help
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
