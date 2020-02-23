@@ -13,14 +13,14 @@ function figment_create_story_shortcode()
   ]);
   $categoriesElems = '';
   foreach ($categories as $category) {
-    $value = esc_html($category->name);
-    $name = ucfirst($value);
+    $value = esc_html($category->term_id);
+    $name = ucfirst(esc_html($category->name));
     $categoriesElems .= "<option value='${value}'>${name}</option>";
   }
 
   return '
     <input type="text" id="storyTitle" name="story-title">
-    <select id="storyCategories" name="storyCategories">'
+    <select id="storyCategory" name="storyCategory">'
     . $categoriesElems .
     '</select>
     <textarea id="simpleMdeContainer" form="simpleMdeForm" name="simpleMdeContainer"></textarea>

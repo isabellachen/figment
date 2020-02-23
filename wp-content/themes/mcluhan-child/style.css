@@ -12,6 +12,9 @@ Version:        1.0.0
   margin: 0;
 }
 
+/*
+ * Removes styling from dropdown list
+*/
 select {
   background: transparent;
   border-radius: 0;

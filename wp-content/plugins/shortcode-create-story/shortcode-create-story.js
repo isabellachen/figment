@@ -1,9 +1,4 @@
 (function($) {
-  const postData = {
-    title: 'Orange is the new black',
-    content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
-    status: 'publish'
-  };
   $(document).ready(function() {
     console.log(scriptVars.currentUser);
     function postStory(postData) {
@@ -19,16 +14,29 @@
         })
         .then(response => response.json())
         .then(json => {
-          alert(json.message);
+          if (json.status === 'publish') {
+            alert(`Success! Your story ${json.title.rendered} published!`);
+          }
+          if (json.data && json.data.status >= 400) {
+            const status = json.data.status;
+            const code = json.code;
+            const message = json.message;
+            throw new Error(`Status:${status} Code:${code} Message:${message}`);
+          }
+        })
+        .catch(error => {
+          console.error(error);
         });
     }
 
     $('#simpleMdeForm').submit(function(event) {
       const title = $('#storyTitle').val();
+      const category = $('#storyCategory').val();
       const body = simpleMde.value();
       const postData = {
         title: title,
         content: body,
+        categories: [category],
         status: 'publish'
       };
       postStory(postData);
