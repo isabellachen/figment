@@ -57,10 +57,10 @@ if (have_posts()) :
       <div class="entry-content section-inner">
 
         <?php the_content(); ?>
-        <!-- <?php if (is_page('profile')) :
-                get_template_part('template-parts/content/content', 'user_stories');
-              ?> -->
-      <?php endif ?>
+        <?php if (is_page('my-stories')) :
+          get_template_part('template-parts/content/content', 'user_stories');
+        ?>
+        <?php endif ?>
 
       </div> <!-- .content -->
 

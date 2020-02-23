@@ -1,6 +1,5 @@
 (function($) {
   $(document).ready(function() {
-    console.log(scriptVars.currentUser);
     function postStory(postData) {
       window
         .fetch(`${scriptVars.endpoint}`, {

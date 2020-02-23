@@ -19,3 +19,10 @@ function add_child_css()
   wp_enqueue_style('mcluhan-shild-style');
 }
 add_action('wp_enqueue_scripts', 'add_child_css');
+
+function mcluhan_child_register_menu()
+{
+  register_nav_menu('secondary-menu', __('Secondary menu', 'mcluhan-child'));
+  register_nav_menu('tertiary-menu', __('Tertiary menu', 'mcluhan-child'));
+}
+add_action('after_setup_theme', 'mcluhan_child_register_menu');

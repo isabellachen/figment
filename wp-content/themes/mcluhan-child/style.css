@@ -29,3 +29,10 @@ select {
   -moz-appearance: none;
   width: 100%;
 }
+
+.menu-divider {
+  margin: 20px auto;
+  border: 1px solid;
+  width: 100%;
+  opacity: 0.3;
+}
