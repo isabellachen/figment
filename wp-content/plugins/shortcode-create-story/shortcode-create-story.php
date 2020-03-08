@@ -34,19 +34,21 @@ add_action('wp_enqueue_scripts', 'figment_enqueue_create_story_script');
 function figment_enqueue_create_story_script()
 {
   //TODO: Also enqueue for single posts that belong to the current user so she can edit her own posts in the MarkDown editor
-  if (is_page('create-story')) {
-    wp_register_style('font_awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
-    wp_register_style('simple_mde_css', 'https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css');
-    wp_enqueue_style('font_awesome');
-    wp_enqueue_style('simple_mde_css');
-
-    wp_enqueue_script('simple_mde_js', 'https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js');
-    wp_enqueue_script('init_simple_mde', plugin_dir_url(__FILE__) . '/init-simple-mde.js', ['simple_mde_js'], false, true);
-    wp_enqueue_script('create_story_script', plugin_dir_url(__FILE__) . '/shortcode-create-story.js', ['jquery', 'simple_mde_js', 'init_simple_mde'], false, true);
-
-    wp_localize_script('create_story_script', 'scriptVars', [
-      'endpoint' => esc_url_raw(rest_url('wp/v2/posts/')),
-      'nonce' => wp_create_nonce('wp_rest')
-    ]);
+  //Guard clause
+  if (!is_page('create-story')) {
+    return;
   }
+  wp_register_style('font_awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css');
+  wp_register_style('simple_mde_css', 'https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.css');
+  wp_enqueue_style('font_awesome');
+  wp_enqueue_style('simple_mde_css');
+
+  wp_enqueue_script('simple_mde_js', 'https://cdn.jsdelivr.net/simplemde/latest/simplemde.min.js');
+  wp_enqueue_script('init_simple_mde', plugin_dir_url(__FILE__) . '/init-simple-mde.js', ['simple_mde_js'], false, true);
+  wp_enqueue_script('create_story_script', plugin_dir_url(__FILE__) . '/shortcode-create-story.js', ['jquery', 'simple_mde_js', 'init_simple_mde'], false, true);
+
+  wp_localize_script('create_story_script', 'scriptVars', [
+    'endpoint' => esc_url_raw(rest_url('wp/v2/posts/')),
+    'nonce' => wp_create_nonce('wp_rest')
+  ]);
 }
