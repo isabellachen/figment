@@ -21,14 +21,16 @@ Last active 9 days ago • Report abuse
 # mu-plugins, plugins, and themes directories
 wp-content/*
 !wp-content/mu-plugins/
-!wp-content/plugins/
 !wp-content/themes/
 
 # ignore all mu-plugins, plugins, and themes
 # unless explicitly whitelisted at the end of this file
+wp-content/plugins
+wp-content/plugins/*
 wp-content/themes/*
 !wp-content/themes/mcluhan
 !wp-content/themes/mcluhan-child
+!wp-content/plugins/shortcode-create-story
 
 # ignore index.php in plugins folder
 wp-content/plugins/index.php
